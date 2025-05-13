@@ -5,8 +5,8 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/e
 
 // API 엔드포인트
 const ENDPOINTS = {
-  COMPANY_DATA: '/v1/fin/financial',
-  COMPANY_LIST: '/v1/fin/companies',
+  COMPANY_DATA: '/v2/ratio/ratio',
+  COMPANY_LIST: '/v2/fin/companies',
 };
 
 export interface DashboardData {
