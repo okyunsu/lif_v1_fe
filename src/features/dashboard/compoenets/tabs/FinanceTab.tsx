@@ -136,7 +136,7 @@ const FinanceTab = () => {
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
                 <th className={tableStyles.itemHeaderCell}>항목</th>
-                {years.map((year, index) => (
+                {years.filter((_, index) => index > 0).map((year, index) => (
                   <th key={`growthYear-${index}`} className={tableStyles.headerCell}>
                     {year}년
                   </th>
@@ -148,7 +148,7 @@ const FinanceTab = () => {
                 <td className={tableStyles.itemCell}>
                   매출 성장률
                 </td>
-                {growthData.revenueGrowth.map((value, index) => (
+                {growthData.revenueGrowth.filter((_, index) => index > 0).map((value, index) => (
                   <td 
                     key={`revGrowth-${index}`} 
                     className={tableStyles.valueCell}
@@ -161,7 +161,7 @@ const FinanceTab = () => {
                 <td className={tableStyles.itemCell}>
                   순이익 성장률
                 </td>
-                {growthData.netIncomeGrowth.map((value, index) => (
+                {growthData.netIncomeGrowth.filter((_, index) => index > 0).map((value, index) => (
                   <td 
                     key={`netGrowth-${index}`} 
                     className={tableStyles.valueCell}

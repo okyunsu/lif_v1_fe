@@ -9,10 +9,14 @@ const inter = Inter({ subsets: ["latin"],display: 'swap'});
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | LIF',
-    default: 'LIF - Life, Intelligence, Future',
+    template: '%s | 웹 파이낸셜 대시보드',
+    default: '웹 파이낸셜 대시보드',
   },
-  description: "Life, Intelligence, Future - 금융 서비스 플랫폼",
+  description: '기업 재무제표 분석 및 대시보드',
+  manifest: '/manifest.json',
+  icons: {
+    apple: '/icons/icon-192x192.png',
+  },
 };
 
 export default function RootLayout({

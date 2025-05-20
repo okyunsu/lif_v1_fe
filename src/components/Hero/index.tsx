@@ -71,23 +71,7 @@ export default function Hero() {
                 더 나은 금융 생활을 경험하세요. 쉽고 편리한 금융 서비스를 통해 
                 당신의 미래를 설계하세요.
               </p>
-              <h3
-                style={{ cursor: "pointer" }}
-                onClick={() => setShowCompanies((prev) => !prev)}
-              >
-                샘플 전자의 상세 정보
-              </h3>
-              {showCompanies && (
-                <div>
-                  <h3>회사 리스트 (JSON)</h3>
-                  {loading && <p>불러오는 중...</p>}
-                  {error && <p style={{ color: 'red' }}>{error}</p>}
-                  <pre style={{ background: "#f4f4f4", padding: "1em", borderRadius: "8px" }}>
-                    {JSON.stringify(companies, null, 2)}
-                  </pre>
-                </div>
-              )}
-              
+
               <div className="mt-10">
                 <a
                   href="#"
