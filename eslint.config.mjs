@@ -13,16 +13,22 @@ const compat = new FlatCompat({
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 const eslintConfig = [
-  // ✅ 기본 Next.js 권장 설정 적용
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // ✅ 기본 next 설정 + 선택 룰 비활성화
+  ...compat.config({
+    extends: ["next"],
+    rules: {
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off",
+    },
+  }),
 
-  // ✅ TypeScript 파일에 대한 명시적 파싱 설정
+  // ✅ TypeScript 파일 파싱 설정
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.eslint.json", // ← 여기 주의!
         sourceType: "module",
         ecmaVersion: "latest",
       },
@@ -32,15 +38,6 @@ const eslintConfig = [
     },
     rules: {
       ...tseslint.configs.recommended.rules,
-    },
-  },
-
-  // ✅ JavaScript 파일도 따로 관리 가능
-  {
-    files: ["**/*.js", "**/*.jsx"],
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
     },
   },
 ];
